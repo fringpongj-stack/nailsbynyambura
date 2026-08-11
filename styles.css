@@ -1,0 +1,862 @@
+:root {
+    --primary-dark: #0b1020;
+    --primary-blue: #1d4ed8;
+    --accent-cyan: #f5c7a9;
+    --soft-blue: #f9efe8;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.16);
+    --text-light: #fffaf7;
+    --text-muted: #e7d9cc;
+    --badge-green: #c18c5b;
+    --whatsapp-green: #25D366;
+    --insta-pink: #e1306c;
+    --mpesa-green: #00A859;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(circle at top left, rgba(245, 199, 169, 0.18), transparent 26%),
+        linear-gradient(135deg, #090d16 0%, #131a2f 100%);
+    color: var(--text-light);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+/* Abstract Artistic Background */
+.art-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(30, 58, 138, 0.8) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.9) 0%, transparent 100%),
+        linear-gradient(135deg, #0b1329 0%, #1e293b 100%);
+    filter: contrast(110%);
+}
+
+.art-canvas-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.15;
+    background-image: radial-gradient(#38bdf8 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+/* Artistic Blobs */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+    animation: float 18s infinite alternate ease-in-out;
+}
+
+.blob-1 {
+    top: 10%;
+    left: 5%;
+    width: 300px;
+    height: 300px;
+    background: #2563eb;
+}
+
+.blob-2 {
+    bottom: 10%;
+    right: 10%;
+    width: 400px;
+    height: 400px;
+    background: #0284c7;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -40px) scale(1.08); }
+    100% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+/* Header & Nav */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 8%;
+    background: rgba(9, 13, 22, 0.72);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #ffffff, var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-cyan);
+}
+
+.nav-insta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white !important;
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(225, 48, 108, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.nav-insta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(225, 48, 108, 0.5);
+    color: white !important;
+}
+
+/* Hero Section */
+.hero {
+    padding: 5rem 8% 3.5rem;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3.2rem;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.3rem;
+    line-height: 1.12;
+    margin-bottom: 1.3rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+.hero-text h1 span {
+    font-style: italic;
+    color: var(--accent-cyan);
+}
+
+.hero-text p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 1.7rem;
+    max-width: 540px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 0.95rem 1.8rem;
+    background: linear-gradient(135deg, #f5c7a9, #c18c5b);
+    color: #1b1220;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 24px -8px rgba(197, 140, 91, 0.45);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgba(2, 132, 199, 0.6);
+}
+
+.btn-whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.4);
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.btn-pay-now {
+    display: inline-block;
+    padding: 1rem 1.4rem;
+    background: linear-gradient(135deg, #f59e0b, #f97316);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.35);
+}
+
+.hero-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.22);
+}
+
+.hero-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-card-copy {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Tabs */
+.content-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0 8% 2rem;
+}
+
+.content-panel {
+    display: none;
+}
+
+.content-panel.active {
+    display: block;
+}
+
+.tab-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover,
+.tab-button.active {
+    background: linear-gradient(135deg, rgba(245, 199, 169, 0.22), rgba(193, 140, 91, 0.4));
+    border-color: rgba(245, 199, 169, 0.55);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Services Grid */
+.services-section {
+    padding: 2rem 8% 5rem;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.section-title p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.section-title-small {
+    margin-bottom: 1rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    padding: 1.7rem;
+    border-radius: 20px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+.service-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--soft-blue);
+}
+
+.service-card .price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    margin-bottom: 0.25rem;
+}
+
+.service-card .deposit-info {
+    font-size: 0.85rem;
+    color: var(--badge-green);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.free-badge {
+    display: inline-block;
+    background: rgba(52, 211, 153, 0.15);
+    color: var(--badge-green);
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+    border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+/* Booking Section */
+.booking-section {
+    padding: 5rem 8%;
+    max-width: 1000px;
+    margin: 0 auto;
+    scroll-margin-top: 90px;
+}
+
+.services-section,
+.gallery-section {
+    scroll-margin-top: 90px;
+}
+
+.booking-container {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    border-radius: 28px;
+    padding: 3rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.schedule-info {
+    border-right: 1px solid var(--glass-border);
+    padding-right: 2rem;
+}
+
+.schedule-info h4 {
+    font-size: 1.1rem;
+    color: var(--accent-cyan);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.availability-box {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid var(--glass-border);
+    padding: 1.25rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.availability-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.time-highlight {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--soft-blue);
+    margin-top: 0.25rem;
+}
+
+.house-call-banner {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.4), rgba(56, 189, 248, 0.1));
+    border: 1px dashed var(--accent-cyan);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.house-call-copy {
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    font-size: 0.88rem;
+    line-height: 1.4;
+}
+
+.mpesa-payment-card {
+    background: rgba(0, 168, 89, 0.1);
+    border: 1px solid rgba(0, 168, 89, 0.4);
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.mpesa-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--badge-green);
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+
+.mpesa-instructions {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+.mpesa-number-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 0.7rem 0;
+}
+
+.mpesa-number {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px dashed var(--badge-green);
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    display: inline-block;
+    font-family: monospace;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: var(--soft-blue);
+}
+
+.copy-number-btn {
+    border: none;
+    border-radius: 999px;
+    padding: 0.55rem 0.9rem;
+    background: var(--accent-cyan);
+    color: #07111f;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.mpesa-help {
+    margin: 0.5rem 0 0.2rem;
+    color: var(--text-muted);
+}
+
+.compact-form-group {
+    margin: 0.75rem 0;
+}
+
+.payment-prompt-box {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px dashed var(--accent-cyan);
+    border-radius: 10px;
+    padding: 0.75rem 0.9rem;
+    margin: 0.7rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--soft-blue);
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    color: white;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-cyan);
+}
+
+.deposit-calculation {
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    color: var(--soft-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deposit-amount {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--badge-green);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    margin-top: 0.25rem;
+}
+
+.checkbox-group input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent-cyan);
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    text-transform: none;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* Payment Prompt Modal */
+.payment-prompt-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.78);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    z-index: 200;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.payment-prompt-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.payment-prompt-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+    width: min(100%, 420px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.payment-prompt-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.payment-prompt-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.payment-prompt-card label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.4rem;
+}
+
+.payment-prompt-card input {
+    width: 100%;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.payment-prompt-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+    text-transform: none;
+    letter-spacing: normal;
+    color: var(--text-light);
+}
+
+.payment-prompt-checkbox input {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+}
+
+.payment-prompt-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 0.9rem 1.2rem;
+    background: transparent;
+    color: var(--text-light);
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Instagram Section */
+.instagram-section {
+    padding: 3rem 8%;
+    text-align: center;
+}
+
+.insta-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.insta-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+}
+
+.insta-handle {
+    color: var(--accent-cyan);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.insta-copy {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.insta-follow-btn {
+    padding: 0.8rem 1.8rem;
+}
+
+.gallery-section {
+    padding: 2rem 8% 4rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.9rem;
+    margin-top: 1.2rem;
+    grid-auto-flow: dense;
+}
+
+.gallery-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    min-height: 150px;
+    position: relative;
+}
+
+.gallery-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(2, 132, 199, 0.12) 100%);
+    pointer-events: none;
+}
+
+.gallery-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: saturate(0.95) contrast(1.02);
+}
+
+.gallery-card:hover img {
+    transform: scale(1.03);
+    filter: saturate(1.03) contrast(1.03);
+
+.gallery-card.tall {
+    grid-row: span 2;
+}
+
+.gallery-card.wide {
+    grid-column: span 2;
+}
+
+.gallery-cta {
+    margin-top: 2rem;
+    max-width: 700px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem;
+    border-top: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.footer-cta {
+    max-width: 760px;
+    margin: 0 auto 2rem;
+    padding: 2rem;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(30, 58, 138, 0.3));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-cta h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    color: white;
+}
+
+.footer-cta p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 3rem;
+    }
+    .booking-grid {
+        grid-template-columns: 1fr;
+    }
+    .schedule-info {
+        border-right: none;
+        border-bottom: 1px solid var(--glass-border);
+        padding-right: 0;
+        padding-bottom: 2rem;
+    }
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    nav a {
+        margin: 0 0.75rem;
+    }
+}

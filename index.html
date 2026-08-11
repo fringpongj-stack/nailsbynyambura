@@ -1,0 +1,187 @@
+< !DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nails by Nyambura | Custom Nail Art & Care</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <div class="art-background">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="art-canvas-overlay"></div>
+    <header>
+      <div class="logo">NAILS BY NYAMBURA</div>
+      <nav><a href="#services">Services & Pricing</a><a href="#gallery">Previous Work</a><a href="#booking">Book Now</a>
+      </nav>
+    </header>
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-text">
+          <h1>Wearable art,
+            <span>crafted</span>for your hands.
+          </h1>
+          <p>Specializing in custom nail design,
+            structured overlays,
+            and extensions. Complimentary nail art on all services !</p><a href="#booking" class="btn-primary">Reserve
+            Your Spot</a>
+        </div>
+        <div class="hero-card">
+          <h3>Custom Artistry <span class="free-badge">FREE ART</span></h3>
+          <p class="hero-card-copy">Every set includes free nail art design. Bring your inspiration or check out my
+            latest work on Instagram !</p>
+        </div>
+      </section>
+      <div class="content-tabs" role="tablist" aria-label="Main sections"><a class="tab-button active" href="#services"
+          data-target="services">Services & Pricing</a><a class="tab-button" href="#gallery"
+          data-target="gallery">Previous Work</a><a class="tab-button" href="#booking" data-target="booking">Book
+          Now</a></div>
+      <section id="services" class="services-section content-panel active" data-panel="services">
+        <div class="section-title">
+          <h2>Services & Pricing</h2>
+          <p>50% deposit required to confirm slot • Balance paid after service</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div>
+              <h4>Plain Gel</h4>
+              <div class="price">KSh 400</div>
+              <div class="deposit-info">Deposit: KSh 200</div>
+              <p>Clean preparation and continuous gel polish application on natural nails.</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div>
+              <h4>Tips & Gel</h4>
+              <div class="price">KSh 500 – 700</div>
+              <div class="deposit-info">Deposit: KSh 250 – 350</div>
+              <p>Nail extensions with tips overlayed with long-lasting gel polish. Price varies by length.</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div>
+              <h4>Polygel</h4>
+              <div class="price">KSh 1,
+                000</div>
+              <div class="deposit-info">Deposit: KSh 500</div>
+              <p>High-durability polygel enhancements for strong,
+                lightweight,
+                and natural-looking length.</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div>
+              <h4>Nail Art <span class="free-badge">FREE</span></h4>
+              <div class="price">KSh 0</div>
+              <div class="deposit-info">Included Free</div>
+              <p>Complimentary custom artwork,
+                accent details,
+                and hand-painted designs included with all services.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="gallery" class="gallery-section content-panel" data-panel="gallery">
+        <div class="section-title">
+          <h2>Previous Work</h2>
+          <p>A few of the custom nail sets and artistic details I’ve created for clients before.</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-card"><img src="IMG-20260810-WA0004.jpg" alt="Elegant nail art design"></div>
+          <div class="gallery-card"><img src="IMG-20260810-WA0005.jpg" alt="Soft pink nail design"></div>
+          <div class="gallery-card"><img src="IMG-20260810-WA0006.jpg" alt="Detailed nail art with sparkle"></div>
+          <div class="gallery-card"><img src="IMG-20260810-WA0007.jpg" alt="Bold colorful nail set"></div>
+          <div class="gallery-card"><img src="IMG-20260810-WA0008.jpg" alt="Glossy nail extension design"></div>
+          <div class="gallery-card"><img src="IMG-20260810-WA0009.jpg" alt="Minimalist nail art finish"></div>
+          <div class="gallery-card"><img src="IMG-20260810-WA0010.jpg" alt="Stylish nail art with accent details"></div>
+          <div class="gallery-card"><img src="IMG-20260810-WA0011.jpg" alt="Beautiful client nail set"></div>
+        </div>
+      </section>
+      <section id="booking" class="booking-section content-panel" data-panel="booking">
+        <div class="booking-container">
+          <div class="section-title section-title-small">
+            <h2>Book an Appointment</h2>
+            <p>Pay 50% deposit via M-Pesa to confirm your session</p>
+          </div>
+          <div class="booking-grid">
+            <div class="schedule-info">
+              <h4>Working Hours</h4>
+              <div class="availability-box">
+                <p class="availability-label">Everyday Availability</p>
+                <div class="time-highlight">From 2:00 PM onwards</div>
+              </div>
+              <div class="house-call-banner">
+                <p><strong>🏠 House Calls Available</strong></p>
+                <p class="house-call-copy">Prefer service in the comfort of your home? House calls are offered at an
+                  extra travel fee depending on your location.</p>
+              </div>
+            </div>
+            <form id="bookingForm" class="booking-form" onsubmit="handleWhatsAppBooking(event)">
+              <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" required
+                  placeholder="Jane Doe"></div>
+              <div class="form-group"><label for="service">Service Requested</label><select id="service"
+                  onchange="updateDepositCalculation()">
+                  <option value="Plain Gel (KSh 400)" data-deposit="200">Plain Gel (KSh 400)</option>
+                  <option value="Tips & Gel (KSh 500 - 700)" data-deposit="250 - 350">Tips & Gel (KSh 500 - 700)
+                  </option>
+                  <option value="Polygel (KSh 1,000)" data-deposit="500">Polygel (KSh 1, 000)</option>
+                </select></div>
+              <div class="deposit-calculation"><span>Required 50% Deposit:</span><span class="deposit-amount"
+                  id="depositDisplay">KSh 200</span></div>
+              <div class="form-group"><label for="mpesaRef">M-Pesa Confirmation / Code</label><input type="text"
+                  id="mpesaRef" required placeholder="e.g. QJK8923KL"></div>
+              <div class="form-group"><label for="date">Preferred Date</label><input type="date" id="date" required>
+              </div>
+              <div class="form-group">
+                <div class="checkbox-group"><input type="checkbox" id="housecall"><label for="housecall">Request House
+                    Call (Extra fee applies)</label></div>
+              </div>
+              <div class="form-group"><label for="notes">Nail Art Ideas / Location Notes</label><textarea id="notes"
+                  rows="2" placeholder="Describe your design ideas or house call location details..."></textarea></div>
+              <button type="button" class="btn-pay-now" onclick="handleWhatsAppBooking(event)">Pay Now</button><button
+                type="submit" class="btn-primary btn-whatsapp">Confirm & Send to WhatsApp 💬</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div id="paymentPromptModal" class="payment-prompt-modal" aria-hidden="true">
+      <div class="payment-prompt-card" role="dialog" aria-modal="true" aria-labelledby="paymentPromptTitle">
+        <h3 id="paymentPromptTitle">Make the Payment</h3>
+        <p>Enter the client phone number and the amount to pay will be shown below.</p><label
+          for="clientPhonePrompt">Client Phone Number</label><input type="tel" id="clientPhonePrompt"
+          placeholder="e.g. 0712345678">
+        <div class="payment-prompt-box" id="paymentPromptBox"><strong>Amount to send:</strong><span
+            id="promptedAmount">KSh 200</span></div><label for="paymentPromptInput">M-Pesa confirmation
+          code</label><input type="text" id="paymentPromptInput" placeholder="e.g. QJK8923KL"><label
+          class="payment-prompt-checkbox"><input type="checkbox" id="paymentPromptCheckbox"><span>I have sent the
+            deposit</span></label>
+        <div class="payment-prompt-actions"><button type="button" class="btn-secondary"
+            id="cancelPaymentPrompt">Cancel</button><button type="button" class="btn-primary"
+            id="confirmPaymentPrompt">Continue</button></div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-cta">
+        <h3>See My Latest Work</h3>
+        <p>Follow along for fresh nail art inspiration,
+          new sets,
+          and behind-the-scenes updates.</p><a href="https://instagram.com/nailsby_nyambura" target="_blank"
+          class="btn-primary nav-insta-btn insta-follow-btn">Follow on Instagram 📸</a>
+      </div>
+      <p>&copy;
+        2026 Nails by Nyambura. All rights reserved.</p>
+      <p>Connect with us on <a href="https://instagram.com/nailsby_nyambura" target="_blank">Instagram
+          (@nailsby_nyambura)</a></p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+
+  </html>
